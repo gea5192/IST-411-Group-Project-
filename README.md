@@ -1,1 +1,1 @@
-# IST-411-Group-Project-
+# Fitness-Tracker
