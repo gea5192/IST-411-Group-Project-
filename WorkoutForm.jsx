@@ -1,21 +1,23 @@
 import { useState } from 'react';
 
-function WorkoutForm() {
-  const [workout, setWorkout] = useState({
+function WorkoutForm({ onAddWorkout }) {
+  const [formData, setFormData] = useState({
     type: '',
     duration: '',
-    caloriesBurned: ''
+    date: ''
   });
 
   const handleChange = (e) => {
-    setWorkout({ ...workout, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Workout Submitted:', workout);
-    // TODO: send workout data to backend
-  };
+    if (onAddWorkout) {
+      onAddWorkout(formData);  // ← Add to global state
+    }
+    setFormData({ type: '', duration: '', date: '' });  // Clear form
+  }; //TODO: set workout data to backed
 
   return (
     <form onSubmit={handleSubmit}>
@@ -23,19 +25,19 @@ function WorkoutForm() {
       <input
         name="type"
         placeholder="Workout Type (e.g. Running)"
-        value={workout.type}
+        value={formData.type}
         onChange={handleChange}
       />
       <input
         name="duration"
         placeholder="Duration (minutes)"
-        value={workout.duration}
+        value={formData.duration}
         onChange={handleChange}
       />
       <input
         name="caloriesBurned"
         placeholder="Calories Burned"
-        value={workout.caloriesBurned}
+        value={formData.caloriesBurned}
         onChange={handleChange}
       />
       <button type="submit">Submit Workout</button>
