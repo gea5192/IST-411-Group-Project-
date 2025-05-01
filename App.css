@@ -171,3 +171,70 @@ form button:hover {
     opacity: 1;
   }
 }
+.goal-page {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.goal-form {
+  flex: 1;
+  background-color: #f3e5f5;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.goal-list {
+  flex: 1;
+  background-color: #fce4ec;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.goal-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.goal-form button {
+  padding: 0.5rem 1rem;
+  background-color: #ba68c8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.goal-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.goal-list li {
+  background-color: #fff;
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+.goal-page-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.goal-form, .goal-list {
+  width: 45%;
+  background-color: #fff0f6;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
