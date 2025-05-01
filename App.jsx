@@ -21,7 +21,7 @@ function App() {
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/workout">Workout Form</Link></li>
-            <li><Link to="/goal">Goal Form</Link></li>
+            <li><Link to="/goal">Goals</Link></li>
             <li><Link to="/history">Workout History</Link></li>
             <li><Link to="/ideas">Workout Ideas</Link></li> 
           </ul>
