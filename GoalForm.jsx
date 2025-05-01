@@ -1,38 +1,59 @@
 import { useState } from 'react';
+import '../App.css'; // Adjust path if needed
 
 function GoalForm() {
-  const [goal, setGoal] = useState({
+  const [formData, setFormData] = useState({
     target: '',
-    deadline: ''
+    deadline: '',
   });
 
+  const [goals, setGoals] = useState([]); // ✅ local goal list
+
   const handleChange = (e) => {
-    setGoal({ ...goal, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Goal Submitted:', goal);
-    // TODO: send goal data to backend
+    if (formData.target && formData.deadline) {
+      setGoals([...goals, formData]); // ✅ add new goal
+      setFormData({ target: '', deadline: '' }); // clear form
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Set a Fitness Goal</h2>
-      <input
-        name="target"
-        placeholder="Goal (e.g. Run 5 miles)"
-        value={goal.target}
-        onChange={handleChange}
-      />
-      <input
-        name="deadline"
-        type="date"
-        value={goal.deadline}
-        onChange={handleChange}
-      />
-      <button type="submit">Set Goal</button>
-    </form>
+    <div className="goal-page-container">
+      <div className="goal-form">
+        <h2>Set a New Goal 🎯</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="target"
+            placeholder="Your fitness goal"
+            value={formData.target}
+            onChange={handleChange}
+          />
+          <input
+            type="date"
+            name="deadline"
+            value={formData.deadline}
+            onChange={handleChange}
+          />
+          <button type="submit">Add Goal</button>
+        </form>
+      </div>
+
+      <div className="goal-list">
+        <h3>🎉 Your Goals</h3>
+        <ul>
+          {goals.map((goal, index) => (
+            <li key={index}>
+              <strong>{goal.target}</strong> — due by <em>{goal.deadline}</em>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }
 
