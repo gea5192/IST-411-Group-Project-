@@ -1,7 +1,7 @@
 //import express
-const express = require("express");
+import express from "express";
+import Workout from "../models/workouts.model.js";
 const router = express.Router();
-const Workout = require("./models/workouts.model");
 
 //implement server code to handle requests
 // GET all workouts
@@ -35,4 +35,4 @@ router.get("/", async (req, res) => {
     }
   });
 
-module.exports = router;
+export default router;
