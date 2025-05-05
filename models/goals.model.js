@@ -1,7 +1,7 @@
 
 //import mongoose
 
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 //define schema
 const goalSchema = new mongoose.Schema(
@@ -14,4 +14,4 @@ const goalSchema = new mongoose.Schema(
 //create model
 const Goal = mongoose.model("Goal", goalSchema);
 
-module.exports = Goal;
+export default Goal;
