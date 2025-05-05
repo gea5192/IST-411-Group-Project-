@@ -1,8 +1,8 @@
 
-//import the express
-const express = require("express");
-
-const connectDB = require("./config/database");
+import express from 'express';
+import connectDB from './FTdatabase.js';
+import goalsRoute from './routes/goals.js';
+import workoutsRoute from './routes/workouts.js';
 
 //create web server
 const app = express();
@@ -10,17 +10,11 @@ const app = express();
 connectDB();
 app.use(express.json());
 
-const Goal = require("./models/goals.model");
-const Workout = require("./models/workouts.model");
-
-
 // mount the modular routes
-const goalsRoute = require("./goals");
 app.use("/goals", goalsRoute);
-const workoutsRoute = require("./workouts");
 app.use("/workouts", workoutsRoute);
 
 //start the server
-app.listen(80, () => {
+app.listen(3001, () => {
     console.log("Server is running on http://Alanas-MacBook-Pro.local/");
 });
