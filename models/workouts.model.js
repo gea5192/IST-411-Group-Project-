@@ -1,6 +1,5 @@
 //import mongoose
-
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 //define schema
 const workoutSchema = new mongoose.Schema(
@@ -14,4 +13,4 @@ const workoutSchema = new mongoose.Schema(
 //create model
 const Workout = mongoose.model("Workout", workoutSchema);
 
-module.exports = Workout;
+export default Workout;
