@@ -1,5 +1,5 @@
 // import mongoose
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 //connect to mongodb
 const connectDB = async () => {
@@ -17,4 +17,4 @@ const connectDB = async () => {
 // .then(() => console.log("Success"))
 // .catch((err) => console.error(err));
 
-module.exports = connectDB;
+export default connectDB;
