@@ -1,7 +1,7 @@
 //import express
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const Goal = require("./models/goals.model");
+import Goal from "../models/goals.model.js";
 
 //implement server code to handle requests
 // GET all goals
@@ -35,4 +35,4 @@ router.get("/", async (req, res) => {
     }
   });
 
-  module.exports = router;
+  export default router;
